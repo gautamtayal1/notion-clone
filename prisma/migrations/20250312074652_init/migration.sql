@@ -1,0 +1,13 @@
+-- CreateTable
+CREATE TABLE "Page" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "title" TEXT NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Block" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "content" TEXT NOT NULL,
+    "pageId" INTEGER NOT NULL,
+    CONSTRAINT "Block_pageId_fkey" FOREIGN KEY ("pageId") REFERENCES "Page" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
